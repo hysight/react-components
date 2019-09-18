@@ -1,0 +1,39 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/6/11 11:28
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/6/11 11:28
+ *Email: lovewinders@163.com
+ *File Path: data - style
+ *@File Name: style
+ *@Description: Description
+ */
+.hc-context-menu-tip {
+  min-width: 130px;
+  background-color: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16);
+  border: 1px solid #dedede;
+  position: fixed;
+  z-index: 401;
+  .hc-context-menu-item {
+    padding: 0 5px;
+    line-height: 30px;
+    color: #5A5A5A;
+    //text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: #E6F7FF;
+    }
+  }
+}
+.hc-context-menu-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 400;
+  background-color: rgba(0, 0, 0, 0)
+}

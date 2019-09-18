@@ -1,0 +1,58 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/5/22 18:38
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/5/22 18:38
+ *Email: lovewinders@163.com
+ *File Path: Machine-Learning - style
+ *@File Name: style
+ *@Description: Description
+ */
+@import "src/utils/mixin";
+/*-------------通用搜索框-------------*/
+.hc-search {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  &.hc-search-size-default {
+    @include set-search-size()
+  }
+  &.hc-search-size-small {
+    @include set-search-size(26px)
+  }
+  &.hc-search-size-middle {
+    @include set-search-size(30px)
+  }
+  &.hc-search-size-large {
+    @include set-search-size(34px)
+  }
+
+  &.hc-search-shape-default {
+    .hs-ipt-suffix {
+      border-radius: 4px;
+    }
+    .hs-ipt {
+      border-radius: 4px;
+    }
+  }
+  &.hc-search-shape-gray {
+    .hs-ipt-suffix {
+      border-radius: 2px;
+      border-color: transparent;
+    }
+    .hs-ipt {
+      border-radius: 2px;
+      background-color: #EEF2F4;
+      &::placeholder {
+        color: #999;
+      }
+    }
+    &:hover {
+      .hs-ipt-suffix {
+        border-color: transparent;
+      }
+    }
+  }
+
+}

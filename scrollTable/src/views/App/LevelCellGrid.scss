@@ -1,0 +1,82 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2017-09-29 15:30
+ * @Last Modified by: Ma Liangliang
+ * @Last Modified time: 2017-12-14 14:46:06
+ *Email: lovewinders@163.com
+ *File Path: //
+ *@File Name: fe
+ *@Description: 
+ */
+.hc-level-cell-grid {
+  font-size: 24px;
+  li {
+    display: flex;
+    position: relative;
+    border-left: 1px solid rgba(157, 235, 255, 0.3);
+    .grid-group {
+      width: 100%;
+      display: flex;
+      .left {
+        justify-content: flex-start;
+      }
+      .center {
+        justify-content: center;
+      }
+      .between {
+        justify-content: space-between;
+      }
+      .right {
+        justify-content: flex-end;
+      }
+    }
+    &:before {
+      display: block;
+      content: "";
+      width: 1px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.9);
+      position: absolute;
+      left: -1px;
+      top: 0;
+    }
+    &:after {
+      display: block;
+      content: "";
+      width: 1px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.9);
+      position: absolute;
+      left: -1px;
+      bottom: 0;
+    }
+    .grid-cell {
+      display: flex;
+      //flex: 1;
+      //justify-content: space-between;
+      padding: 0 8px;
+      position: relative;
+      border-right: 1px solid rgba(157, 235, 255, 0.3);
+      &:before {
+        display: block;
+        content: "";
+        width: 1px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        right: -1px;
+        top: 0;
+      }
+      &:after {
+        display: block;
+        content: "";
+        width: 1px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        right: -1px;
+        bottom: 0;
+      }
+    }
+  }
+}

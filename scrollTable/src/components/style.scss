@@ -1,0 +1,30 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2017-09-11 17:00
+ *@Last Modified by: zhangb
+ *@Last Modified time: 2017-09-11 17:00
+ *Email: lovewinders@163.com
+ *File Path: //
+ *@File Name: intelligence
+ *@Description: 
+ */
+/*.hc-animation {
+  animation: scrollTable 2s linear 1s infinite;
+}*/
+/*
+!*animation*!
+@keyframes scrollTable {
+  0% { transform: translateY(0px)}
+  100% { transform: translateY(-127px)}
+}*/
+.hc-animation {
+  position: relative;
+  .ani-scroll {
+
+  }
+  .ani-level-scroll {
+    position: absolute;
+    //left: 0;
+    white-space: nowrap;
+  }
+}

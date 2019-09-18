@@ -1,0 +1,140 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/6/4 17:50
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/6/4 17:50
+ *Email: lovewinders@163.com
+ *File Path: Machine-Learning - style
+ *@File Name: style
+ *@Description: Description
+ */
+.hc-menu-tree {
+  //
+  .menu-tree-space {
+    & > .menu-tree-space-item {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+  //
+  .menu-tree-arrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+    @at-root .menu-tree-arrow-open {
+      &:before {
+        content: "\e6c3";
+      }
+    }
+    @at-root .menu-tree-arrow-close {
+      &:before {
+        content: "\e63d";
+      }
+    }
+  }
+  ////
+  //@at-root .menu-tree-online-open {
+  //  &:before {
+  //    content: "\e64c";
+  //  }
+  //}
+  //@at-root .menu-tree-online-close {
+  //  &:before {
+  //    content: "\e64b";
+  //  }
+  //}
+  @at-root .menu-tree-online {
+    display: inline-block;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+  }
+
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    outline: 0;
+    ul {
+      margin: 0;
+    }
+    //&.menu-tree-node-expanded {
+    //  //background-color: rgb(240, 245, 249);
+    //  & > .menu-tree-parent-tree {
+    //    & > .menu-tree-switcher, & > .menu-tree-content-wrapper, & > .icon {
+    //      color: #31A8E9;
+    //    }
+    //  }
+    //}
+    &.menu-tree-node-selected {
+      & > .menu-tree-parent-tree {
+        background-color: #E5EEFB;
+      }
+    }
+    .menu-tree-parent-tree {
+      height: 40px;
+      line-height: 40px;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid #E5EEFB;
+      cursor: pointer;
+      &:hover {
+        background-color: #E5EEFB;
+      }
+      .icon-gengduo {
+        float: right;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+      }
+    }
+    //
+    &.menu-tree-drag-over {
+      & > .menu-tree-parent-tree {
+        background-color: #f5f5f5;
+        & > .menu-tree-switcher-table {
+          cursor: no-drop;
+        }
+      }
+    }
+    &.menu-tree-grap-top {
+      & > .menu-tree-parent-tree {
+        border-top: 1px solid red;
+      }
+    }
+    &.menu-tree-grap-bottom {
+      & > .menu-tree-parent-tree {
+        border-bottom: 1px solid red;
+      }
+    }
+  }
+
+  .menu-tree-parent-tree {
+    display: flex;
+    .menu-tree-eye, .menu-tree-space, .menu-tree-arrow, .menu-tree-online, .menu-tree-content-wrapper, .hc-context-menu {
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+    }
+    .menu-tree-eye {
+      font-size: 20px;
+      &.disabled {
+        cursor: not-allowed;
+      }
+    }
+    .menu-tree-content-wrapper {
+      flex: 1;
+      color: #666;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap
+    }
+  }
+  .menu-tree-title {
+    font-size: 14px;
+  }
+}

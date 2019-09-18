@@ -1,0 +1,34 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/4/18 18:29
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/4/18 18:29
+ *Email: lovewinders@163.com
+ *File Path: Machine-Learning - style
+ *@File Name: style
+ *@Description: Description
+ */
+@import "src/utils/mixin";
+
+.hc-back {
+  vertical-align: middle;
+  &.hc-back-small {
+    @include set-back-btn-size(19px);
+  }
+  &.hc-back-middle {
+    @include set-back-btn-size(24px);
+  }
+  &.hc-back-large {
+    @include set-back-btn-size(36px);
+  }
+  .go-href {
+    color: #A9B7BD;
+    &:hover {
+      color: #31A8E9;
+    }
+  }
+  .back-content {
+    color: #333333;
+    margin-left: 20px;
+  }
+}

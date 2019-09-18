@@ -1,0 +1,126 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/7/11 12:02
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/7/11 12:02
+ *Email: lovewinders@163.com
+ *File Path: data - ProgressBar
+ *@File Name: ProgressBar
+ *@Description: Description
+ */
+/*滚动进度条动画*/
+@keyframes hc-progress-bar-active {
+  0% {
+    opacity: .1;
+    width: 0
+  }
+
+  20% {
+    opacity: .5;
+    width: 0
+  }
+
+  to {
+    opacity: 0;
+    width: 100%
+  }
+}
+.hc-progress-bar {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  .progress-outer {
+    display: inline-block;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    vertical-align: middle;
+  }
+  .progress-inner {
+    width: 100%;
+    padding: 1px;
+    border-radius: 100px;
+  }
+  .progress-bg {
+    border-radius: 100px;
+    //border-top-left-radius: 100px;
+    //border-bottom-left-radius: 100px;
+  }
+  /**/
+  &.progress-bar-status-normal {
+    .progress-inner {
+      border: 1px solid #019bfd;
+    }
+    .progress-bg {
+      background-color: #108ee9;
+    }
+  }
+  /**/
+  &.progress-bar-status-active {
+    &.progress-bar-show-info {
+      .progress-bg {
+        &:after {
+          content: "";
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #fff;
+          //border-radius: 10px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          animation: hc-progress-bar-active 2.4s cubic-bezier(.23,1,.32,1) infinite;
+        }
+      }
+    }
+    .progress-inner {
+      border: 1px solid #019bfd;
+    }
+    .progress-bg {
+      background-color: #108ee9;
+      position: relative;
+    }
+  }
+  /**/
+  &.progress-bar-status-exception {
+    .progress-inner {
+      border: 1px solid #f04134;
+    }
+    .progress-bg {
+      background-color: #f04134;
+    }
+    .icon {
+      color: #f04134;
+    }
+  }
+  /**/
+  &.progress-bar-status-success {
+    .progress-inner {
+      border: 1px solid #00a854;
+    }
+    .progress-bg {
+      background-color: #00a854;
+    }
+    .icon {
+      color: #00a854;
+    }
+  }
+  /**/
+  &.progress-bar-show-info {
+    .progress-outer {
+      padding-right: 2.75em;
+      margin-right: -2.75em;
+    }
+    .progress-text {
+      width: 2em;
+      text-align: left;
+      font-size: 1em;
+      margin-left: .75em;
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+}

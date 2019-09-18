@@ -1,0 +1,16 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2017-05-25 11:49
+ *@Last Modified by: zhangb
+ *@Last Modified time: 2017-05-25 11:49
+ *Email: lovewinders@163.com
+ *File Path: //
+ *@File Name: tueasy-jiaoguan
+ *@Description: sass mixin fn
+ */
+
+/*-----------------------------set search ipt area-------------------------------*/
+//set search theme color
+@mixin set-back-btn-size ($size:19px) {
+  font-size: $size;
+}

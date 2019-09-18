@@ -1,0 +1,47 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/5/22 16:45
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/5/22 16:45
+ *Email: lovewinders@163.com
+ *File Path: Machine-Learning - style
+ *@File Name: style
+ *@Description: Description
+ */
+@font-face {
+  font-family: "hyfont40s";
+  src:
+          url("./fonts/40s/hyfont40s.woff2") format("woff2"),
+          url("./fonts/40s/hyfont40s.woff") format("woff"),
+          url("./fonts/40s/hyfont40s.ttf") format("truetype"),
+          url("./fonts/40s/hyfont40s.eot") format("embedded-opentype"),
+          url("./fonts/40s/hyfont40s.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "hyfont60s";
+  src:
+          url("./fonts/60s/hyfont60s.woff2") format("woff2"),
+          url("./fonts/60s/hyfont60s.woff") format("woff"),
+          url("./fonts/60s/hyfont60s.ttf") format("truetype"),
+          url("./fonts/60s/hyfont60s.eot") format("embedded-opentype"),
+          url("./fonts/60s/hyfont60s.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*汉仪字体40s*/
+.hyfont-40s {
+  font-family: "hyfont40s" !important;
+}
+
+/*汉仪字体60s*/
+.hyfont-60s {
+  font-family: "hyfont60s" !important;
+}
+
+* {
+  font-family: "hyfont40s","PingFang SC","Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Helvetica Neue",Helvetica,Arial,sans-serif;
+}

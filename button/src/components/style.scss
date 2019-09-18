@@ -1,0 +1,63 @@
+/**
+ *@Author: hy-zhangb
+ *Date: 2018/5/22 16:45
+ *@Last Modified by: hy-zhangb
+ *@Last Modified time: 2018/5/22 16:45
+ *Email: lovewinders@163.com
+ *File Path: Machine-Learning - style
+ *@File Name: style
+ *@Description: Description
+ */
+@import "src/utils/mixin";
+/*-------------通用按钮-------------*/
+.hc-button {
+  display: inline-block;
+  min-width: 70px;
+  padding: 0 25px;
+  font-size: 14px;
+  text-align: center;
+
+  &.hc-button-theme-default {
+    @include set-button-theme(#666666, #CACACA, #FFFFFF)
+  }
+  &.hc-button-theme-primary {
+    @include set-button-theme(#31A8E9, #31A8E9, #E4F6FE)
+  }
+  &.hc-button-theme-danger {
+    @include set-button-theme(#F44436, #F44436, #FDDAD7)
+  }
+
+  &.hc-button-shape-default {
+    &.hc-button-size-small {
+      border-radius: 4px;
+    }
+    &.hc-button-size-middle {
+      border-radius: 4px;
+    }
+    &.hc-button-size-large {
+      border-radius: 4px;
+    }
+  }
+
+  &.hc-button-shape-circle {
+    &.hc-button-size-small {
+      border-radius: 13px;
+    }
+    &.hc-button-size-middle {
+      border-radius: 20px;
+    }
+    &.hc-button-size-large {
+      border-radius: 13px;
+    }
+  }
+
+  &.hc-button-size-small {
+    @include set-button-size(0 20px)
+  }
+  &.hc-button-size-middle {
+    @include set-button-size(3px 30px)
+  }
+  &.hc-button-size-large {
+    @include set-button-size(3px 25px)
+  }
+}
