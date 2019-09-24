@@ -3,7 +3,7 @@
  * @Date: 2019-09-18 16:26:25
  * @Email: lovewinders@163.com
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-18 16:26:25
+ * @Last Modified time: 2019-09-24 15:18:34
  * @Description: 
  -->
 
@@ -67,6 +67,7 @@ or
 
 Prop|Default|Type|Description
 :----|:-----|:-----|:-----
+className|''|string|组件追加的className名称
 scrollSpeed|'linear'|string| [linear] [ease] [ease-in] [ease-out] [ease-in-out] [cubic-bezier(n,n,n,n)]
 scrollTime|2000|number|滚动单个所用时间，单位ms
 scrollHeight|27|number|单个item的高度，单位px
@@ -85,6 +86,9 @@ Prop|Default|Type|Description
 
 
 # change logs
+
+### 0.0.3
+  + 增加className
 
 ### 0.0.2
   + 增加列表总count不超过scrollRows时，默认不滚动

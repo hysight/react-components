@@ -2,7 +2,7 @@
  *@Author: hy-zhangb
  *Date: 2018/6/20 15:23
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-24 11:28:00
+ * @Last Modified time: 2019-09-24 15:17:19
  *Email: lovewinders@163.com
  *File Path: hysight-buttons - index
  *@File Name: index
@@ -77,6 +77,7 @@ class App extends Component {
         return (
             <div>
                 <ScrollTable
+                    className="sadf a"
                     // scrollSpeed='linear'
                     scrollSpeed='ease'
                     scrollTime={1000}

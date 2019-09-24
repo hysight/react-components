@@ -2,7 +2,7 @@
  *@Author: hy-zhangb
  *Date: 2017-09-11 16:48
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-24 11:26:12
+ * @Last Modified time: 2019-09-24 15:21:16
  *Email: lovewinders@163.com
  *File Path: //
  *@File Name: intelligence
@@ -21,6 +21,7 @@ import './style.scss';
 class ScrollTable extends Component {
     static LevelScroll = LevelScroll;
     static propTypes = {
+        className: PropTypes.string,
         children: PropTypes.any,
         scrollDirection: PropTypes.string,
         scrollSpeed: PropTypes.string,
@@ -31,6 +32,7 @@ class ScrollTable extends Component {
         count: PropTypes.number
     };
     static defaultProps = {
+        className: '',
         scrollDirection: 'up',
         scrollSpeed: 'linear',
         scrollTime: 2000,
@@ -220,35 +222,37 @@ class ScrollTable extends Component {
     };
     render() {
 
-        const {children, scrollDirection, scrollHeight, scrollRows} = this.props;
-        const cls = classNames({
-            'ani-scroll': true,
+        const {className, children, scrollDirection, scrollHeight, scrollRows} = this.props;
+        const cls = classNames('hc-animation', {
+            [className]: true
+        });
+        const scrollCls = classNames('ani-scroll', {
             'ani-level-scroll': scrollDirection === 'left'
         });
         if(!this.isChildrenScroll()) {
             // debugger;
             return (
                 <div
-                className='hc-animation'
-                style={{height: `${scrollHeight * scrollRows}px`, overflow: 'hidden'}}
-            >
-                <div
                     className={cls}
-                    ref={'ani-scroll'}
+                    style={{height: `${scrollHeight * scrollRows}px`, overflow: 'hidden'}}
                 >
-                    {children}
-                </div>
+                    <div
+                        className={scrollCls}
+                        ref={'ani-scroll'}
+                    >
+                        {children}
+                    </div>
             </div>
             )
         }
         // debugger;
         return (
             <div
-                className='hc-animation'
+                className={cls}
                 style={{height: `${scrollHeight * scrollRows}px`, overflow: 'hidden'}}
             >
                 <div
-                    className={cls}
+                    className={scrollCls}
                     ref={'ani-scroll'}
                     onMouseEnter={this.stopAnimation}
                     onMouseLeave={this.runHandleTimer}
