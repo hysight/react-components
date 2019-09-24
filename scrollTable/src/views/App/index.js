@@ -1,8 +1,8 @@
 /**
  *@Author: hy-zhangb
  *Date: 2018/6/20 15:23
- *@Last Modified by: hy-zhangb
- *@Last Modified time: 2018/6/20 15:23
+ * @Last Modified by: zhangb
+ * @Last Modified time: 2019-09-24 11:28:00
  *Email: lovewinders@163.com
  *File Path: hysight-buttons - index
  *@File Name: index
@@ -16,11 +16,61 @@ import LevelCellGrid from 'src/views/App/LevelCellGrid';
 
 const {LevelScroll} = ScrollTable;
 
+const data = [
+    { column: ['张子鑫', ['值班主任', '13323450987']] },
+    { column: ['王强', ['警员1', '13565347765']] },
+    { column: ['宋涛', ['警员2', '18622354321']] },
+    { column: ['朱洪', ['警员3', '18901239805']] },
+    { column: ['毛艺亿', ['警员4', '13542767770']] },
+    { column: ['曾晓明', ['警员5', '15000980241']] },
+    { column: ['卢洪涛', ['警员6', '15543284321']] },
+    { column: ['李秀凯', ['警员7', '13326544453']] },
+    { column: ['张一鸣', ['警员8', '13498723724']] },
+    { column: ['王强', ['警员9', '13565347765']] },
+    { column: ['宋涛', ['警员10', '18622354321']] },
+    { column: ['朱洪', ['警员11', '18901239805']] },
+    { column: ['毛艺亿', ['警员12', '13542767770']] },
+    { column: ['曾晓明', ['警员13', '15000980241']] },
+    { column: ['卢洪涛', ['警员14', '15543284321']] },
+    { column: ['李秀凯', ['警员15', '13326544453']] },
+    { column: ['张一鸣', ['警员16', '13498723724']] },
+    { column: ['张子鑫', ['警员17', '13323450987']] }
+]
+
 class App extends Component {
     constructor(props, context) {
 
         super(props, context);
+        this.state = {
+            data: data.slice(0, 3)
+        }
 
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            console.log(5);
+            this.setState({
+                data: data.slice(0, 5)
+            })
+        }, 5000);
+        setTimeout(() => {
+            console.log(6);
+            this.setState({
+                data: data.slice(0, 6)
+            })
+        }, 10000);
+        setTimeout(() => {
+            console.log(9);
+            this.setState({
+                data: data.slice(0, 9)
+            })
+        }, 15000);
+        setTimeout(() => {
+            console.log(2);
+            this.setState({
+                data: data.slice(0, 2)
+            })
+        }, 30000);
     }
     render() {
 
@@ -33,28 +83,10 @@ class App extends Component {
                     scrollHeight={54}
                     scrollRows={5}
                     delayTime={2000}
+                    count={this.state.data.length}
                 >
                     <LevelCellGrid
-                        data={[
-                            { column: ['张子鑫', ['值班主任', '13323450987']] },
-                            { column: ['王强', ['警员1', '13565347765']] },
-                            { column: ['宋涛', ['警员2', '18622354321']] },
-                            { column: ['朱洪', ['警员3', '18901239805']] },
-                            { column: ['毛艺亿', ['警员4', '13542767770']] },
-                            { column: ['曾晓明', ['警员5', '15000980241']] },
-                            { column: ['卢洪涛', ['警员6', '15543284321']] },
-                            { column: ['李秀凯', ['警员7', '13326544453']] },
-                            { column: ['张一鸣', ['警员8', '13498723724']] },
-                            { column: ['王强', ['警员9', '13565347765']] },
-                            { column: ['宋涛', ['警员10', '18622354321']] },
-                            { column: ['朱洪', ['警员11', '18901239805']] },
-                            { column: ['毛艺亿', ['警员12', '13542767770']] },
-                            { column: ['曾晓明', ['警员13', '15000980241']] },
-                            { column: ['卢洪涛', ['警员14', '15543284321']] },
-                            { column: ['李秀凯', ['警员15', '13326544453']] },
-                            { column: ['张一鸣', ['警员16', '13498723724']] },
-                            { column: ['张子鑫', ['警员17', '13323450987']] }
-                        ]}
+                        data={this.state.data}
                         colDirection={['center', 'between']}
                         colWidth={['30%', '70%']}
                         rowHeight={'54px'}

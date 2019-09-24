@@ -30,7 +30,8 @@
     "classnames": "^2.2.6",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "description": "向上或左滚动消息列表/走马灯效果",
   "devDependencies": {
@@ -103,5 +104,5 @@
   "main": "dist/index.js",
   "name": "@hysight/scrollTable",
   "repository": "git@192.168.1.73:tueasy/tueasy-start.git",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

@@ -1,3 +1,11 @@
+<!--
+ * @Author: zhangb
+ * @Date: 2019-09-18 16:26:25
+ * @Email: lovewinders@163.com
+ * @Last Modified by: zhangb
+ * @Last Modified time: 2019-09-18 16:26:25
+ * @Description: 
+ -->
 
 # hysight-scrollTable
 
@@ -64,6 +72,7 @@ scrollTime|2000|number|滚动单个所用时间，单位ms
 scrollHeight|27|number|单个item的高度，单位px
 scrollRows|5|number|默认展示几行数据
 delayTime|1000|number|滚动间隔延迟时间，单位ms
+count|Infinity|number|滚动rows总个数统计数
 
 
 ## LevelScroll Props
@@ -76,6 +85,9 @@ Prop|Default|Type|Description
 
 
 # change logs
+
+### 0.0.2
+  + 增加列表总count不超过scrollRows时，默认不滚动
 
 ### 0.0.1
   + 初始化项目

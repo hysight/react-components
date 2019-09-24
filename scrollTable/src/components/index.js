@@ -1,8 +1,8 @@
 /**
  *@Author: hy-zhangb
  *Date: 2017-09-11 16:48
- *@Last Modified by: zhangb
- *@Last Modified time: 2017-09-11 16:48
+ * @Last Modified by: zhangb
+ * @Last Modified time: 2019-09-24 11:26:12
  *Email: lovewinders@163.com
  *File Path: //
  *@File Name: intelligence
@@ -27,7 +27,8 @@ class ScrollTable extends Component {
         scrollTime: PropTypes.number,
         scrollHeight: PropTypes.number,
         scrollRows: PropTypes.number,
-        delayTime: PropTypes.number
+        delayTime: PropTypes.number,
+        count: PropTypes.number
     };
     static defaultProps = {
         scrollDirection: 'up',
@@ -35,8 +36,18 @@ class ScrollTable extends Component {
         scrollTime: 2000,
         scrollHeight: 27,
         scrollRows: 5,
-        delayTime: 1000
+        delayTime: 1000,
+        count: Infinity,
     };
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        const {count, scrollRows} = this.props;
+        if(count <= scrollRows) {
+            // debugger;
+            this.timer && clearInterval(this.timer);
+            this.removeAniTrans();
+        }
+        return null;
+    }
     constructor(props) {
 
         super(props);
@@ -51,7 +62,8 @@ class ScrollTable extends Component {
     }
     componentDidUpdate() {
 
-        this.reloadScrollHandle();
+        // console.log("this.isChildrenScroll()", this.isChildrenScroll());
+        this.isChildrenScroll() && this.reloadScrollHandle();
 
     }
     componentWillUnmount() {
@@ -59,6 +71,10 @@ class ScrollTable extends Component {
         this.clearAllListener();
 
     }
+    isChildrenScroll = () => {
+        const {count, scrollRows} = this.props;
+        return count > scrollRows;
+    };
     getBrowserPrefix = () => {
 
         const browserPrefix = {
@@ -90,7 +106,7 @@ class ScrollTable extends Component {
         // addEventListener
         const animationDom = ReactDOM.findDOMNode(this.refs['ani-scroll']);
         animationDom.addEventListener(this.getBrowserPrefix(), this.addAniTransform);
-        this.reloadScrollHandle();
+        this.isChildrenScroll() && this.reloadScrollHandle();
 
     };
     reloadScrollHandle = () => {
@@ -209,6 +225,23 @@ class ScrollTable extends Component {
             'ani-scroll': true,
             'ani-level-scroll': scrollDirection === 'left'
         });
+        if(!this.isChildrenScroll()) {
+            // debugger;
+            return (
+                <div
+                className='hc-animation'
+                style={{height: `${scrollHeight * scrollRows}px`, overflow: 'hidden'}}
+            >
+                <div
+                    className={cls}
+                    ref={'ani-scroll'}
+                >
+                    {children}
+                </div>
+            </div>
+            )
+        }
+        // debugger;
         return (
             <div
                 className='hc-animation'
