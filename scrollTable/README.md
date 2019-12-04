@@ -3,7 +3,7 @@
  * @Date: 2019-09-18 16:26:25
  * @Email: lovewinders@163.com
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-24 15:18:34
+ * @Last Modified time: 2019-09-24 15:22:09
  * @Description: 
  -->
 
@@ -88,7 +88,7 @@ Prop|Default|Type|Description
 # change logs
 
 ### 0.0.3
-  + 增加className
+  + 增加className名称
 
 ### 0.0.2
   + 增加列表总count不超过scrollRows时，默认不滚动
