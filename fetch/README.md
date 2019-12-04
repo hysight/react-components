@@ -160,6 +160,9 @@ Fetch().interceptors.response = function(response) {
 
 # change logs
 
+### 0.2.2
+  + 发布到公网npm
+
 ### 0.2.1
   + 在default或fetch 第二个参数对象里，扩展fetch其余参数，例如credentials,mode等等同级参数
 

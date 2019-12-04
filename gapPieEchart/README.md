@@ -1,3 +1,11 @@
+<!--
+ * @Author: zhangb
+ * @Date: 2019-09-18 16:25:47
+ * @Email: lovewinders@163.com
+ * @Last Modified by: zhangb
+ * @Last Modified time: 2019-12-04 16:39:18
+ * @Description: 
+ -->
 
 # hysight-gapPieEchart
 
@@ -11,7 +19,7 @@
 ## Examples
 
 ```
-import GapPieEchart from '@hysight/gapPieEchart';
+import GapPieEchart from '@hysight/gap-pie-echart';
 
 <GapPieEchart
     option={Option}
@@ -21,11 +29,11 @@ import GapPieEchart from '@hysight/gapPieEchart';
 
 ## Usage
 ```
-    npm install @hysight/gapPieEchart --save --registry=http://192.168.1.207:5000
+    npm install @hysight/gap-pie-echart --save --registry=http://192.168.1.207:5000
     or
-    yarn add @hysight/gapPieEchart --registry=http://192.168.1.207:5000
+    yarn add @hysight/gap-pie-echart --registry=http://192.168.1.207:5000
     then
-    import GapPieEchart from '@hysight/gapPieEchart';
+    import GapPieEchart from '@hysight/gap-pie-echart';
     
     options gap tree config
     -option
@@ -50,6 +58,9 @@ splitItemNum|1|num|表示按照X份分割data中每个item数据，所分数据�
 
 
 # change logs
+
+### 0.0.2
+  + 发布到公网npm
 
 ### 0.0.1
   + 初始化项目

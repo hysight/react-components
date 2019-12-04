@@ -39,6 +39,13 @@ Prop|Default|Type|Description
 
 
 # change logs
+
+### 0.4.0
+  + 发布到公网npm 第二次
+
+### 0.3.9
+  + 发布到公网npm
+
 ### 0.3.8
   + 20190522可视分析平台图标更新
 

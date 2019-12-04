@@ -25,8 +25,8 @@
     }
   },
   "dependencies": {
-    "@hysight/icon": "0.0.5",
-    "@hysight/progress": "0.0.1",
+    "@hysight/icon": "0.4.0",
+    "@hysight/progress": "0.0.2",
     "classnames": "^2.2.6",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
@@ -102,6 +102,10 @@
   "license": "ISC",
   "main": "dist/index.js",
   "name": "@hysight/upload",
-  "repository": "git@192.168.1.73:tueasy/tueasy-start.git",
-  "version": "0.0.3"
+  "homepage": "https://github.com/hysight/react-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hysight/react-components/tree/master/upload"
+  },
+  "version": "0.0.4"
 }

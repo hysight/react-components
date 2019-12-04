@@ -101,5 +101,10 @@
   "license": "ISC",
   "main": "dist/index.js",
   "name": "@hysight/message",
-  "version": "0.0.2"
+  "homepage": "https://github.com/hysight/react-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hysight/react-components/tree/master/message"
+  },
+  "version": "0.0.3"
 }

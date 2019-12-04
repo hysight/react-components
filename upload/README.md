@@ -89,6 +89,9 @@ withCredentials|false|bool|上传请求时是否携带 cookie
 
 # change logs
 
+### 0.0.4
+  + 发布到公网npm
+
 ### 0.0.3
   + 完善Dragger Props自定义children
 

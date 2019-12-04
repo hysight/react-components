@@ -1,3 +1,11 @@
+<!--
+ * @Author: zhangb
+ * @Date: 2019-09-18 16:26:15
+ * @Email: lovewinders@163.com
+ * @Last Modified by: zhangb
+ * @Last Modified time: 2019-12-04 15:29:50
+ * @Description: 
+ -->
 
 # hysight-progress
 
@@ -39,6 +47,9 @@ strokeWidth|15|number|进度条线的宽度，单位 px
 
 
 # change logs
+
+### 0.0.2
+  + 发布到公网npm
 
 ### 0.0.1
   + 初始化项目

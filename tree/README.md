@@ -3,7 +3,7 @@
  * @Date: 2019-06-17 09:25:53
  * @Email: lovewinders@163.com
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-03 10:48:52
+ * @Last Modified time: 2019-12-04 15:09:32
  * @Description: 
  -->
 
@@ -351,6 +351,12 @@ onClick|无|func|点击[更多]图标事件
 
 
 # change logs
+
+### 0.3.8
+  + 发布到公网npm 2
+
+### 0.3.7
+  + 发布到公网npm
 
 ### 0.3.6
   + 扩展Tree组件内可传递多个null

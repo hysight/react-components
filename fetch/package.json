@@ -95,12 +95,18 @@
     "public"
   ],
   "keywords": [
-    "fetch"
+    "fetch",
+    "ajax",
+    "请求"
   ],
   "author": "lovewinders",
   "license": "ISC",
   "main": "dist/index.js",
   "name": "@hysight/fetch",
-  "repository": "git@192.168.1.73:tueasy/tueasy-start.git",
-  "version": "0.2.1"
+  "homepage": "https://github.com/hysight/react-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hysight/react-components/tree/master/fetch"
+  },
+  "version": "0.2.2"
 }

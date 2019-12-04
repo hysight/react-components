@@ -3,7 +3,7 @@
  * @Date: 2019-09-18 16:26:25
  * @Email: lovewinders@163.com
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-24 15:22:09
+ * @Last Modified time: 2019-12-04 16:07:22
  * @Description: 
  -->
 
@@ -19,7 +19,7 @@
 ## Examples
 
 ```
-import ScrollTable from '@hysight/scrollTable';
+import ScrollTable from '@hysight/scroll-table';
 const {LevelScroll} = ScrollTable;
 
 and
@@ -86,6 +86,9 @@ Prop|Default|Type|Description
 
 
 # change logs
+
+### 0.0.4
+  + 发布到公网npm
 
 ### 0.0.3
   + 增加className名称

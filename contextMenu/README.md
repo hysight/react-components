@@ -3,7 +3,7 @@
  * @Date: 2019-09-03 10:10:32
  * @Email: lovewinders@163.com
  * @Last Modified by: zhangb
- * @Last Modified time: 2019-09-03 13:11:44
+ * @Last Modified time: 2019-12-04 14:40:26
  * @Description: 
  -->
 
@@ -22,7 +22,7 @@
 ## Examples
 
 ```
-import ContextMenu from '@hysight/contextMenu'
+import ContextMenu from '@hysight/context-menu'
 const {MenuItem} = ContextMenu;
 or
 render() {
@@ -54,11 +54,11 @@ render() {
 
 ## Usage
 ```
-    npm install @hysight/contextMenu --save --registry=http://192.168.1.207:5000
+    npm install @hysight/context-menu --save --registry=http://192.168.1.207:5000
     or
-    yarn add @hysight/contextMenu --registry=http://192.168.1.207:5000
+    yarn add @hysight/context-menu --registry=http://192.168.1.207:5000
     then
-    import ContextMenu from '@hysight/contextMenu'
+    import ContextMenu from '@hysight/context-menu'
     const {MenuItem} = ContextMenu;
 ```
 
@@ -74,6 +74,9 @@ render|'---'|func/element(react)|被绑定触发提示框的组件-Comp/props/st
 
 
 # change logs
+
+### 0.2.2
+  + 发布到公网npm
 
 ### 0.2.1
   + 屏蔽邮件默认事件
