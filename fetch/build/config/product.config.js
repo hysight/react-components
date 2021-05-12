@@ -68,7 +68,7 @@ const defaultConfig = {
     // COMPILER_PUBLIC_PATH: DEV OR PRO
     // COMPILER_OUT_PATH: DEV OR PRO
     // ----------------------------------
-    COMPILER_DEVTOOL: 'cheap-module-eval-source-map',
+    COMPILER_DEVTOOL: 'cheap-module-source-map',
     COMPILER_HOST: '',
     COMPILER_PORT: '',
     COMPILER_NAME: '',

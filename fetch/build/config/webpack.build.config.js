@@ -37,7 +37,9 @@ const output = {
     filename: 'index.js',
     // async chunk产出时的文件名称
     // chunkFilename: `${DIR_DIST_JS}/[name].${COMPILER_HASH_TYPE}.chunk.js`,
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    // chunkLoading: false,
+    // wasmLoading: false,
     // publicPath: COMPILER_PUBLIC_PATH
 };
 

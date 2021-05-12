@@ -10,7 +10,6 @@
  */
 const configs = require('../config/product.config');
 const webpackConfig = require('../config/webpack.build.config');
-const fs = require('fs-extra');
 const webpack = require('webpack');
 const debug = require('debug')('app:bin:compile');
 
@@ -19,11 +18,13 @@ const debug = require('debug')('app:bin:compile');
 // ----------------------------------
 const {DIR_PUBLIC, paths: {assignPath, public: publicPath, dist}} = configs;
 
+let compiler;
+
 // Wrapper around webpack to promisify its compiler and supply friendly logging
 const webpackCompiler = (webpackConfig) =>
     new Promise((resolve, reject) => {
 
-        const compiler = webpack(webpackConfig);
+        compiler = webpack(webpackConfig);
 
         compiler.run((err, stats) => {
 
@@ -71,7 +72,7 @@ const compile = () => {
         .then(() => webpackCompiler(webpackConfig))
         .then((stats) => {
 
-            if(stats.warnings.length && false) {
+            if(stats.warnings.length) {
 
                 throw new Error('Config set to fail on warning, exiting with status code "1".');
 
@@ -83,6 +84,7 @@ const compile = () => {
         })
         .then(() => {
 
+            // compiler.close();
             debug('Compilation completed successfully.');
 
         })

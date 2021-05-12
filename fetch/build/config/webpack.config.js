@@ -44,7 +44,9 @@ const output = {
     // async chunk产出时的文件名称
     chunkFilename: `${DIR_DIST_JS}/[name].${COMPILER_HASH_TYPE}.chunk.js`,
     // libraryTarget: 'commonjs2'
-    publicPath: COMPILER_PUBLIC_PATH
+    publicPath: COMPILER_PUBLIC_PATH,
+    chunkLoading: false,
+    wasmLoading: false,
 };
 
 // ----------------------------------

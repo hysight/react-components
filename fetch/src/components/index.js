@@ -8,7 +8,6 @@
  *@File Name: index
  *@Description: Description
  */
-'use strict';
 import {_UUID} from '../utils/tools';
 
 // fetch
@@ -82,7 +81,7 @@ class Fetch {
     createFormData = (data) => {
 
         if(Object.prototype.toString.call(data) === '[object FormData]') return data;
-        let formData = new FormData();
+        const formData = new FormData();
         Object.entries(data).forEach(([key, val]) => {
 
             formData.append(key, val);
@@ -143,15 +142,15 @@ class Fetch {
         const {
             data,
             method = 'GET',
-            baseUrl,
             headers,
+            baseUrl,
             isForceSuffixHash,
             minorUrl,
             validateStatus,
             ...otherProps
         } = config;
         // 处理content-type or Content-Type
-        let {...HeaderProps} = headers;
+        const {...HeaderProps} = headers;
         const isContentType = HeaderProps.hasOwnProperty('Content-Type') || HeaderProps.hasOwnProperty('content-type');
         if(isContentType) {
 
@@ -201,7 +200,7 @@ class Fetch {
         return fetch(baseFnUrl, request(baseFn))
             .then((res) => {
 
-                if(mergeConfig.validateStatus(arguments)) {
+                if(!mergeConfig.validateStatus(res.status)) {// arguments
 
                     throw new Error(minorFnUrl, res.statusText);
 
@@ -235,11 +234,11 @@ class Fetch {
 const fetchInstance = new Fetch();
 
 // createInstance
-function createInstance() {
+function createInstance(...args) {
 
-    if(Array.from(arguments).length !== 0) {
+    if(args.length !== 0) {
 
-        return fetchInstance.request(...Array.from(arguments));
+        return fetchInstance.request(...args);
 
     }
     return fetchInstance;

@@ -160,6 +160,9 @@ Fetch().interceptors.response = function(response) {
 
 # change logs
 
+### 0.2.3
+  + 移除babel-runtime
+
 ### 0.2.2
   + 发布到公网npm
 

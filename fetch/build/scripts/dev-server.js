@@ -46,12 +46,12 @@ app.use(express.static(assignPath(DIR_BASE_PATH, DIR_DIST)));
 // ======================================================
 app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
-    contentBase: client,
-    hot: true,
-    quiet: true,
-    noInfo: false,
-    lazy: false,
-    historyApiFallback: true,
+    // contentBase: client,
+    // hot: true,
+    // quiet: true,
+    // noInfo: false,
+    // lazy: false,
+    // historyApiFallback: true,
     stats: {
         colors: true
     }
@@ -92,7 +92,7 @@ app.use('*', function(req, res, next) {
 
 // compiler
 let initDone = false;
-compiler.plugin('done', () => {
+compiler.hooks.done.tap('BuildStatsPlugin', () => {
 
     if(!initDone) {
 

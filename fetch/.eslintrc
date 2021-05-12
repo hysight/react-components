@@ -6,30 +6,37 @@
         "node": true,
         "amd": true
     },
-    "extends": ["airbnb/base", "eslint:recommended", "hyfe"],
-    "parser": "babel-eslint",
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "globals": {
         "$": true,
         "_data": true,
-        "__DEV__"      : false,
-        "__PROD__"     : false,
-        "__BASENAME__"     : false
+        "__DEV__": false,
+        "__PROD__": false,
+        "__BASENAME__": false,
+        "__IP__": false
     },
     "parserOptions": {
-        "ecmaVersion": 6,
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true,
-            "templateStrings": true,
-            "superInFunctions": true,
-            "spread": true
-        },
-        "sourceType": "module"
+        // "ecmaVersion": 6,
+        // "ecmaFeatures": {
+        //     "experimentalObjectRestSpread": true,
+        //     "jsx": true,
+        //     "templateStrings": true,
+        //     "superInFunctions": true,
+        //     "spread": true
+        // },
+        // "sourceType": "module"
+        // "project": "./app"
     },
     "plugins": [
-        "react",
+        // "react",
         "import",
-        "react"
+        "react",
+        "react-hooks",
+        "@typescript-eslint"
     ],
     "settings": {
         "import/resolver": {
@@ -46,38 +53,79 @@
         "spread": true
     },
     "rules": {
-        "indent": ["error", 4],
-        "linebreak-style": ["error", "unix"],
-//        "quotes": ["warn", "single"],
-        "semi": ["error", "always"],
-//        "no-console": "off",
-//        "prefer-template": "off",
-//        "consistent-return": "off",
-//        "no-param-reassign": "off",
-//        "comma-dangle": ["error", "never"],
-        "padded-blocks": ["error", {
-            "switches": "always",
-            "classes": "never",
-            "blocks": "always"
-        }],
-//        "no-underscore-dangle": ["error", {
-//            "allow": ["_data", "_result", "_initialState"],
-//            "allowAfterThis": true
-//        }],
-//        "space-infix-ops": ["error", {
-//            "int32Hint": false
-//        }],
-//        "space-before-blocks": ["error"],
-//        "no-empty-function": ["error"],
-//        "key-spacing": ["error"],
-//        "arrow-spacing": ["error"],
-//        "quote-props": ["error", "consistent"],
-//        "jsx-quotes": ["error", "prefer-single"],
-//        "react/jsx-uses-vars": 2,
-//        "react/jsx-uses-react": 2,
-        "max-len": [2, 120],
-        "react/jsx-indent-props": [2, 4],
-        "react/forbid-prop-types": [2, {"forbid": ["any"]}]
-//        "no-debugger": 2
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        // "no-console": "error",
+        //        "prefer-template": "off",
+        //        "consistent-return": "off",
+        //        "no-param-reassign": "off",
+        //        "comma-dangle": ["error", "never"],
+        "padded-blocks": [
+            "error",
+            {
+                "switches": "always",
+                "classes": "never",
+                "blocks": "always"
+            }
+        ],
+        "@typescript-eslint/no-var-requires": 1, // 允许commonjs语法
+        //        "no-underscore-dangle": ["error", {
+        //            "allow": ["_data", "_result", "_initialState"],
+        //            "allowAfterThis": true
+        //        }],
+        //        "space-infix-ops": ["error", {
+        //            "int32Hint": false
+        //        }],
+        //        "space-before-blocks": ["error"],
+        //        "no-empty-function": ["error"],
+        //        "key-spacing": ["error"],
+        //        "arrow-spacing": ["error"],
+        //        "quote-props": ["error", "consistent"],
+        "jsx-quotes": ["error", "prefer-single"],
+        //        "react/jsx-uses-vars": 2,
+        //        "react/jsx-uses-react": 2,
+        "max-len": [
+            2,
+            125
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
+        "react/forbid-prop-types": [
+            2,
+            {
+                "forbid": [
+                    "any"
+                ]
+            }
+        ],
+        "no-debugger": 1,
+        // 因为后端命名采用下划线形式和前端小驼峰不一致，暂时关闭这个校验
+        "camelcase": "off",
+        "@typescript-eslint/camelcase": 0,
+        "@typescript-eslint/no-this-alias": [
+            "error",
+            {
+              "allowDestructuring": true, // Allow `const { props, state } = this`; false by default
+              "allowedNames": ["self"] // Allow `const self = this`; `[]` by default
+            }
+          ],
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
     }
 }

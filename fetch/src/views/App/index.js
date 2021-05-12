@@ -32,8 +32,8 @@ Fetch().default.baseUrl = (url) => {
     console.log('-=-=', Fetch());
     return process.env.NODE_ENV === 'development'
         ? Fetch().use([
-            Fetch().proxy(url)('^/hymodel/home', {
-                target: 'http://192.168.1.207:4024'
+            Fetch().proxy(url)('^/xearth', {
+                target: 'https://crisisresponse.tihal.cn'
             }),
             Fetch().proxy(url)('^/api/v1/file/upload', {
                 target: 'http://192.168.94.118:8081'
@@ -112,7 +112,7 @@ class App extends Component {
     }
     handleFetch() {
 
-        const url = '/hymodel/home/user/detail?a=1';
+        const url = '/xearth/login/get-my-captcha?a=1';
         Fetch(url/* , {
             method: 'GET',
             params: {
@@ -131,9 +131,9 @@ class App extends Component {
     }
     handleFetch2() {
 
-        const url = '/hymodel/data/dataset/usertree?bbb=333';// /{version}
+        const url = '/xearth/user/index?bbb=333';// /{version}
         Fetch(url, {
-            method: 'GET',
+            method: 'POST',
             params: {
                 b: 2,
                 c: 3
@@ -155,7 +155,7 @@ class App extends Component {
             password: '123456'
         };
 
-        let Url = '/hymodel/home/login';
+        const Url = '/hymodel/home/login';
         // let Url = '/hymodel/home/login';
 
         Fetch(Url, {
@@ -178,7 +178,7 @@ class App extends Component {
         const formData = new FormData();
         formData.append('file', event.target.files[0]);
         // let Url = '/api/v1/file/upload';
-        let Url = 'http://192.168.94.210:8081/api/v1/file/upload';
+        const Url = 'http://192.168.94.210:8081/api/v1/file/upload';
 
         fetch(Url, {
             method: 'POST',
@@ -201,9 +201,9 @@ class App extends Component {
         const formData = new FormData();
         formData.append('file', event.target.files[0]);
         formData.append('flag', '0');
-        let Url = '/curvemap.studio.service/file/upload';
+        const Url = '/curvemap.studio.service/file/upload';
         // let Url = 'http://192.168.1.202:8722/curvemap.studio.service/file/upload';
-        let formData2 = {
+        const formData2 = {
             file: event.target.files[0],
             flag: '0'
         };

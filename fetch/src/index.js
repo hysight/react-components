@@ -1,15 +1,17 @@
-/*
-* @Author: zhangyujie
-* @Date:   2017-05-16 10:27:16
-* @Last Modified by:   wangc
-* @Last Modified time: 2018-04-03 15:26:02
-* @Email: zhangyujie3344521@163.com
-* @File Path: Machine-Learning - DsdBaseInfo
-* @File Name: index.js
-* @Descript:
-*/
-import 'babel-polyfill';
-import 'whatwg-fetch';
+/*** 
+ * @Author: zhangb
+ * @Date: 2021-05-12 11:05:50
+ * @Email: lovewinders@163.com
+ * @LastEditors: zhangbao
+ * @LastEditTime: 2021-05-12 13:40:24
+ * @FilePath: /fetch/src/index.js
+ * @Description: 
+ */
+// import 'babel-polyfill';
+// import 'whatwg-fetch';
+
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 import 'src/styles/reset.css';
 import 'src/styles/index.scss';
