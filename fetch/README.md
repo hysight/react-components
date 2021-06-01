@@ -160,6 +160,9 @@ Fetch().interceptors.response = function(response) {
 
 # change logs
 
+### 0.2.4
+  + fetch 调整 validateStatus status >= 200 && status < 500
+
 ### 0.2.3
   + 移除babel-runtime
 

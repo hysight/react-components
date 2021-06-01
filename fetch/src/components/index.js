@@ -23,7 +23,7 @@ class Fetch {
         isForceSuffixHash: false,
         validateStatus: (status) => {
 
-            return status >= 200 && status < 300; // default
+            return status >= 200 && status < 500; // default
 
         }
     };
