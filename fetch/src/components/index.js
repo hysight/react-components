@@ -10,9 +10,6 @@
  */
 import {_UUID} from '../utils/tools';
 
-const controller = new AbortController();
-const { signal } = controller;
-
 // fetch
 class Fetch {
     static defaultConfig = {
@@ -140,7 +137,7 @@ class Fetch {
         return baseUrlFn + (isForceSuffixHash ? this.setUrlHash(rUrl)(method) : rUrl);
 
     };
-    baseFn = (config) => {
+    baseFn = (config, signal) => {
 
         const {
             data,
@@ -189,6 +186,9 @@ class Fetch {
     // 请求
     request = (url, config = {}) => {
 
+        const controller = new AbortController();
+        const { signal } = controller;
+
         const {request, response} = this.interceptors;
         const {headers, ...propsHeaders} = this.default;
         const mergeConfig = Object.assign(
@@ -199,7 +199,7 @@ class Fetch {
             {...config}
         );
         const minorFnUrl = this.minorFnUrl(url);
-        const baseFn = this.baseFn(mergeConfig);
+        const baseFn = this.baseFn(mergeConfig, signal);
         const baseFnUrl = this.baseFnUrl(minorFnUrl, mergeConfig);
 
         let timeoutTimer;
