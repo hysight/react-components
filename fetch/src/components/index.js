@@ -10,6 +10,9 @@
  */
 import {_UUID} from '../utils/tools';
 
+const controller = new AbortController();
+const { signal } = controller;
+
 // fetch
 class Fetch {
     static defaultConfig = {
@@ -172,7 +175,8 @@ class Fetch {
             {
                 method,
                 headers: HeaderProps,
-                body: method.toUpperCase() !== 'GET' ? body : null
+                body: method.toUpperCase() !== 'GET' ? body : null,
+                signal: signal
             }
         );
         // return {
@@ -197,7 +201,10 @@ class Fetch {
         const minorFnUrl = this.minorFnUrl(url);
         const baseFn = this.baseFn(mergeConfig);
         const baseFnUrl = this.baseFnUrl(minorFnUrl, mergeConfig);
-        return fetch(baseFnUrl, request(baseFn))
+
+        let timeoutTimer;
+
+        const requestPromise = fetch(baseFnUrl, request(baseFn))
             .then((res) => {
 
                 if(!mergeConfig.validateStatus(res.status)) {// arguments
@@ -210,6 +217,7 @@ class Fetch {
             })
             .then(async(res) => {
 
+                timeoutTimer && clearTimeout(timeoutTimer);
                 const data = await res.json();
                 return response({
                     config: this.default,
@@ -226,6 +234,26 @@ class Fetch {
                 console.log(`请求失败：${error}`);
 
             });
+
+        const timeoutPromise = (timeout) => {
+
+            return new Promise((resolve, reject) => {
+
+                timeoutTimer = setTimeout(() => {
+
+                    controller.abort();
+                    reject({
+                        code: 504,
+                        message: '请求超时！'
+                    });
+                
+                }, timeout);
+            
+            });
+        
+        };
+
+        return Promise.race([requestPromise, timeoutPromise(mergeConfig.timeout || 10000)]);
 
     }
 }

@@ -24,7 +24,8 @@ Fetch(url, {
     data: {key: value},// Content-Type设置multipart/form-data, data建议可设置object即可，FormData也算可以。|| Content-Type不设置的话，若想上传文件，data必须设置FormData格式
     headers: {
         'Content-Type': 'application/json'
-    }
+    },
+    // timeout?: number，单个api超时（非必填）
 })
 
 ```
@@ -40,6 +41,7 @@ Fetch().default.minorUrl = (url) => url; // 可对纯url部分进行篡改动作
 Fetch().default.baseUrl = '';
 Fetch().default.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 Fetch().default.headers['Authorization'] = '';
+// Fetch().default.timeout = 10000; // 默认全局超时10s（非必填）
 
 // 推荐在主入口模块中导入Fetch，并手动指定以上配置
 // eg.
@@ -159,6 +161,9 @@ Fetch().interceptors.response = function(response) {
 ```
 
 # change logs
+
+### 0.2.5
+  + Fetch 第二个参数新增timeout超时并中断请求（取消请求基于signal AbortController）
 
 ### 0.2.4
   + fetch 调整 validateStatus status >= 200 && status < 500

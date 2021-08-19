@@ -50,6 +50,7 @@ Fetch().default.baseUrl = (url) => {
 };
 Fetch().default.headers['Content-Type'] = 'application/json';
 Fetch().default.headers['X-Token'] = localStorage.getItem('token');
+// Fetch().default.timeout = 2000;
 console.log(1);
 console.log(1);
 console.log(1);
@@ -164,12 +165,18 @@ class App extends Component {
             headers: {
                 Authorization: null,
                 'Content-Type': 'application/json'
-            }
+            },
+            // timeout: 12000
         }).then(res => {
 
             console.log('rewerewr', res);
 
+        }).catch(error => {
+
+            console.log(`请求失败3242432432：${error}`, error);
+
         });
+
 
     }
     handleFetch4(event) {
