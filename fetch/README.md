@@ -162,6 +162,9 @@ Fetch().interceptors.response = function(response) {
 
 # change logs
 
+### 0.2.8
+  + 完善超时504走promise resove
+
 ### 0.2.7
   + 完善超时支持interceptors.response
 

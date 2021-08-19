@@ -242,9 +242,13 @@ class Fetch {
                 timeoutTimer = setTimeout(() => {
 
                     controller.abort();
-                    reject(response({
+                    resolve(response({
                         config: this.default,
-                        data: null,
+                        data: {
+                            code: 0,
+                            data: {},
+                            message: '网络请求超时！',
+                        },
                         headers: mergeConfig.headers,
                         request: {
                             status: 504,

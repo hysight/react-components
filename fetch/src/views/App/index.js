@@ -99,7 +99,7 @@ Fetch().interceptors.response = function(response) {
         return result;
     case 504:
         console.log('网络超时啊 啊啊 啊');
-        return;
+        return response;
     default:
         return response;
 
@@ -173,7 +173,7 @@ class App extends Component {
             // timeout: 12000
         }).then(res => {
 
-            console.log('rewerewr', res);
+            console.log('请求成功', res);
 
         }).catch(error => {
 
