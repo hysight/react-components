@@ -162,6 +162,9 @@ Fetch().interceptors.response = function(response) {
 
 # change logs
 
+### 0.2.6
+  + 重新build
+
 ### 0.2.5
   + Fetch 第二个参数新增timeout超时并中断请求（取消请求基于signal AbortController）
 
