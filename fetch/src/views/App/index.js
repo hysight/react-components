@@ -68,9 +68,10 @@ Fetch().interceptors.request = function(config) {
 };
 Fetch().interceptors.response = function(response) {
 
-    switch (response.status === 401) {
+    const result = {};
+    switch (response.status) {
 
-    /* case 0:
+    case 0:
         console.log(result.msg);
         break;
     case -100:
@@ -95,7 +96,10 @@ Fetch().interceptors.response = function(response) {
         return result;
     case -200:
         console.log('用户权限不足');
-        return result;*/
+        return result;
+    case 504:
+        console.log('网络超时啊 啊啊 啊');
+        return;
     default:
         return response;
 
