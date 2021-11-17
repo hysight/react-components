@@ -162,6 +162,9 @@ Fetch().interceptors.response = function(response) {
 
 # change logs
 
+### 0.2.10
+  + 修复超时返回code为0错误问题，改为 response { code=-1 }
+
 ### 0.2.9
   + 修复request signal问题
 

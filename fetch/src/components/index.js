@@ -245,7 +245,7 @@ class Fetch {
                     resolve(response({
                         config: this.default,
                         data: {
-                            code: 0,
+                            code: -1,
                             data: {},
                             message: '网络请求超时！',
                         },
