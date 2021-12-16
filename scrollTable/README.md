@@ -87,6 +87,9 @@ Prop|Default|Type|Description
 
 # change logs
 
+### 1.0.1
+  + fix readme
+  + 
 ### 1.0.0
   + use react hooks
 
