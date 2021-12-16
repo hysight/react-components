@@ -7,7 +7,7 @@
  * @Description: 
  -->
 
-# hysight-scrollTable
+# @hysight/scroll-table
 
 @hysight/scroll-table uses react hooks and typescript to write a scrolling list plugin
 
