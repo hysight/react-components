@@ -1,3 +1,4 @@
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const configs = require('./product.config');
 
@@ -5,7 +6,15 @@ const configs = require('./product.config');
 // get dev || pro Configuration
 // ----------------------------------
 const {
+    env,
     DIR_BASE_PATH,
+    DIR_DIST_JSON,
+    DIR_DIST_JS,
+    DIR_DIST_FONTS,
+    DIR_DIST_IMAGES,
+    COMPILER_DEVTOOL,
+    COMPILER_HASH_TYPE,
+    COMPILER_PUBLIC_PATH,
     paths: {assignPath, client, dist}
 } = configs;
 
@@ -35,9 +44,13 @@ const output = {
 // resolve Configuration
 // ----------------------------------
 const resolve = {
-    extensions: ['.js', '.json', '.scss', '.css', '.styl', '.sass', '.less'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss', '.css', '.styl', '.sass', '.less'],
     alias: {
-        'src': client
+        'src': client,
+        'dist': path.join(process.cwd(), 'dist'),
+        'react': path.join(process.cwd(), 'node_modules/react'),
+        'react-dom': path.join(process.cwd(), 'node_modules/react-dom'),
+        'lodash': path.join(process.cwd(), 'node_modules/lodash')
     }
 };
 
