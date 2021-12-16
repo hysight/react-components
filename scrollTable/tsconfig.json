@@ -1,0 +1,41 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "module": "esnext", // esnext
+    "alwaysStrict": true,
+    "target": "esnext",
+    // "types": ["cesium"],
+    "sourceMap": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "public/*": ["public/*"],
+    },
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "resolveJsonModule":true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "Models",
+      "typings",
+      "node_modules"
+    ],
+  },
+  "include": [
+    "src/**/*",
+    "server"
+  ], // 要打包的文件
+  "exclude": [
+    "node_modules"
+  ]
+}

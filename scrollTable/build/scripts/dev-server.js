@@ -1,13 +1,3 @@
-/**
- *@Author: hy-zhangb
- *Date: 2017-08-01 19:46
- *@Last Modified by: zhangb
- *@Last Modified time: 2017-08-01 19:46
- *Email: lovewinders@163.com
- *File Path: //
- *@File Name: react-demo
- *@Description:
- */
 const configs = require('../config/product.config');
 const webpackConfig = require('../config/webpack.config');
 
@@ -15,11 +5,21 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const compress = require('compression');
-
+const { createProxyMiddleware } = require('http-proxy-middleware');
+ 
 // ----------------------------------
 // get dev || pro Configuration
 // ----------------------------------
-const {paths: {assignPath, client}, DIR_BASE_PATH, DIR_DIST, COMPILER_HOST, CLIENT_PORT, COMPILER_NAME, COMPILER_PUBLIC_PATH} = configs;
+const {
+    paths: {assignPath, client},
+    DIR_BASE_PATH,
+    DIR_DIST,
+    DIR_PUBLIC,
+    COMPILER_HOST,
+    CLIENT_PORT,
+    COMPILER_NAME,
+    COMPILER_PUBLIC_PATH
+} = configs;
 
 // ======================================================
 // express server
@@ -36,26 +36,45 @@ app.use(compress());
 // ======================================================
 const compiler = webpack(webpackConfig);
 
+// home
+// app.use(
+//     '^/goadmin/*',
+//     proxy({
+//         target: 'http://dc0.licaimofang.com',
+//         // target: 'https://api.go-admin.dev',
+//         changeOrigin: true
+//     })
+// );
+
 // ======================================================
 // all route to redirect index.html
 // ======================================================
 app.use(express.static(assignPath(DIR_BASE_PATH, DIR_DIST)));
 
 // ======================================================
+// public resource route to redirect public
+// ======================================================
+app.use(
+    `${COMPILER_NAME ? `/${COMPILER_NAME}` : ''}/${DIR_PUBLIC}`,
+    express.static(assignPath(DIR_BASE_PATH, DIR_PUBLIC))
+);
+
+// ======================================================
 // webpack dev middleware
 // ======================================================
 app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
-    contentBase: client,
-    hot: true,
-    quiet: true,
-    noInfo: false,
-    lazy: false,
-    watchOptions: {
-        aggregateTimeout: 10,
-        poll: true
-    },
-    historyApiFallback: true,
+    // contentBase: client,
+    // hot: true,
+    // quiet: true,
+    // noInfo: false,
+    // lazy: false,
+    // watchOptions: {
+    //     ignored: /node_modules/,
+    //     aggregateTimeout: 300,
+    //     poll: true
+    // },
+    // historyApiFallback: true,
     stats: {
         colors: true
     }
@@ -88,31 +107,40 @@ app.use('*', function(req, res, next) {
         }
         res.set('content-type', 'text/html');
         res.send(result);
+        // res.send('<div>333</div>');
         res.end();
 
     });
 
 });
 
-// compiler
-let initDone = false;
-compiler.plugin('done', () => {
+// compiler.hooks.afterDone
+compiler.hooks.done.tap('done', (stats) => {
 
-    if(!initDone) {
+    const info = stats.toJson();
+    if (stats.hasWarnings()) {
 
-        initDone = true;
-        app.listen(CLIENT_PORT, function(err) {
+        console.warn(info.warnings);
+    
+    }
 
-            if(err) {
+    if (stats.hasErrors()) {
 
-                console.log(err);
-                return;
+        console.error(info.errors);
+        return;
+    
+    }
 
-            }
-            console.log(`--====> 💻 Listening at Open http://${COMPILER_HOST}:${CLIENT_PORT} 💻 <====----`);
+});
 
-        });
+app.listen(CLIENT_PORT, function(err) {
+
+    if(err) {
+
+        console.log(err);
+        return;
 
     }
+    console.log(`--====> 💻 Listening at Open http://${COMPILER_HOST}:${CLIENT_PORT} 💻 <====----`);
 
 });

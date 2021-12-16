@@ -1,31 +1,38 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "targets": {
-          "browsers": [
-            "ie >= 10",
-            "Chrome >= 40"
-          ]
-        }
+        // "useBuiltIns": undefined,
+        // "targets": { 
+        //   "node": "current" 
+        // },
+        "targets": "> 5%",
+        "useBuiltIns": "usage",
+        "corejs": 3
       }
     ],
-    "stage-0",
-    "react"
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "transform-runtime",
-    "transform-decorators-legacy",
+    // "@babel/plugin-transform-modules-commonjs",
+    ["@babel/plugin-transform-typescript", { "allowNamespaces": true }],
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-object-rest-spread",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-private-methods", { "loose" : true }],
+    ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+    ["@babel/plugin-proposal-private-property-in-object", { "loose" : true }],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-optional-chaining",
+    // "@babel/plugin-transform-typescript",
+    // "@babel/plugin-syntax-typescript",
     [
       "import",
       {
         "libraryName": "antd",
         "style": true
-        /*"libraryDirectory": "es",
-        "style": "css"*/
       }
     ]
   ]

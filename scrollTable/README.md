@@ -9,20 +9,23 @@
 
 # hysight-scrollTable
 
-## npm 发布方法
+@hysight/scrollTable uses react hooks and typescript to write a scrolling list plugin
+
+## Install
 ```
-    npm set registry http://192.168.1.207:5000
-    npm adduser --registry http://192.168.1.207:5000
-    npm publish 
+$ npm install @hysight/scrollTable --save
 ```
 
-## Examples
+```
+$ yarn add @hysight/scrollTable
+```
 
+## Usage
 ```
 import ScrollTable from '@hysight/scroll-table';
-const {LevelScroll} = ScrollTable;
+const { LevelScroll } = ScrollTable;
 
-and
+// Scroll up
 
 <ScrollTable
     // scrollSpeed='linear'
@@ -32,38 +35,32 @@ and
     scrollRows={5}
     delayTime={2000}
 >
-    <div style={{height: '54px'}}>列表1</div>
-    <div style={{height: '54px'}}>列表1</div>
-    <div style={{height: '54px'}}>列表1</div>
-    <div style={{height: '54px'}}>列表1</div>
+    <div style={{height: '54px'}}>list1</div>
+    <div style={{height: '54px'}}>list1</div>
+    <div style={{height: '54px'}}>list1</div>
+    <div style={{height: '54px'}}>list1</div>
     or
     <ScrollContent />
 </ScrollTable>
-or
+
+// Scroll left
 <LevelScroll>
-    <span style={{'marginLeft': '20px'}}>測試士大夫瞭解了水电费1</span>
-    <span style={{'marginLeft': '20px'}}>測試士大夫瞭解了水电费2</span>
-    <span style={{'marginLeft': '20px'}}>測試士大夫瞭解了水电费3</span>
-    <span style={{'marginLeft': '20px'}}>測試士大夫瞭解了水电费4</span>
+    <span style={{'marginLeft': '20px'}}>list1</span>
+    <span style={{'marginLeft': '20px'}}>list1</span>
+    <span style={{'marginLeft': '20px'}}>list1</span>
+    <span style={{'marginLeft': '20px'}}>list1</span>
     or
     <ScrollContent />
 </LevelScroll>
 
 ```
+### TypeScript
 
-
-## Usage
-```
-    npm install @hysight/scrollTable --save --registry=http://192.168.1.207:5000
-    or
-    yarn add @hysight/scrollTable --registry=http://192.168.1.207:5000
-    then
-    import ScrollTable from '@hysight/scrollTable'
-```
+`@hysight/scrollTable` is written in TypeScript with complete definitions
 
 ## ScrollTable Props
 
-> 向上滚动
+> Scroll up
 
 Prop|Default|Type|Description
 :----|:-----|:-----|:-----
@@ -78,14 +75,20 @@ count|Infinity|number|滚动rows总个数统计数
 
 ## LevelScroll Props
 
-> 向左滚动
+> Scroll left
 
 Prop|Default|Type|Description
 :----|:-----|:-----|:-----
 无|无|无|无
 
 
+## keywords
+
+
 # change logs
+
+### 1.0.0
+  + use react hooks
 
 ### 0.0.4
   + 发布到公网npm

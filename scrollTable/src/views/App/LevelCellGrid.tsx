@@ -1,12 +1,11 @@
-/**
- *@Author: hy-zhangb
- *Date: 2018/7/17 16:26
- *@Last Modified by: hy-zhangb
- *@Last Modified time: 2018/7/17 16:26
- *Email: lovewinders@163.com
- *File Path: scrollTable - LevelCellGrid
- *@File Name: LevelCellGrid
- *@Description: Description
+/*** 
+ * @Author: zhangb
+ * @Date: 2021-05-12 11:05:51
+ * @Email: lovewinders@163.com
+ * @LastEditors: zhangbao
+ * @LastEditTime: 2021-12-16 18:27:47
+ * @FilePath: /scrollTable/src/views/App/LevelCellGrid.tsx
+ * @Description: 
  */
 // react
 import React, { PureComponent } from 'react';
@@ -28,7 +27,11 @@ class LevelCellGrid extends PureComponent {
                     data.map((v, i) => {
 
                         return (
-                            <li key={`grid-row${i}`} style={{height: rowHeight, lineHeight: rowHeight}}>
+                            <li 
+                                key={`grid-row${i}`} 
+                                style={{height: rowHeight, lineHeight: rowHeight}}
+                                onClick={() => console.log('我被电击了', v)}
+                            >
                                 {this.toRenderCell(v.column)}
                             </li>
                         );
