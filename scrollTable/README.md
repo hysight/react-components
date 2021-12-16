@@ -9,15 +9,15 @@
 
 # hysight-scrollTable
 
-@hysight/scrollTable uses react hooks and typescript to write a scrolling list plugin
+@hysight/scroll-table uses react hooks and typescript to write a scrolling list plugin
 
 ## Install
 ```
-$ npm install @hysight/scrollTable --save
+$ npm install @hysight/scroll-table --save
 ```
 
 ```
-$ yarn add @hysight/scrollTable
+$ yarn add @hysight/scroll-table
 ```
 
 ## Usage
@@ -56,7 +56,7 @@ const { LevelScroll } = ScrollTable;
 ```
 ### TypeScript
 
-`@hysight/scrollTable` is written in TypeScript with complete definitions
+`@hysight/scroll-table` is written in TypeScript with complete definitions
 
 ## ScrollTable Props
 
