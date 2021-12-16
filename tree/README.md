@@ -9,13 +9,6 @@
 
 # hysight-tree
 
-## npm 发布方法
-```
-    npm set registry http://192.168.1.207:5000
-    npm adduser --registry http://192.168.1.207:5000
-    npm publish 
-```
-
 ## Examples
 
 ```
