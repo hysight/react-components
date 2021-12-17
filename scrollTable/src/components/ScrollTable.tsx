@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import React, { FC, memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import { browserCSSPrefix } from './utils';
 // import useUpdateLayoutEffect from './hooks/useUpdateLayoutEffect';
@@ -159,7 +159,7 @@ const ScrollTable: FC<Props> = props => {
     const clearScroll = useCallback(() => {
 
         timerRef.current && clearInterval(timerRef.current);
-        scrollNodeRef.current.removeEventListener(browserCSSPrefix, runAnimation);
+        scrollNodeRef.current && scrollNodeRef.current.removeEventListener(browserCSSPrefix, runAnimation);
 
     }, [runAnimation]);
 
@@ -178,7 +178,7 @@ const ScrollTable: FC<Props> = props => {
 
         // addEventListener
         // clearScroll();
-        scrollNodeRef.current.addEventListener(browserCSSPrefix, runAnimation);
+        scrollNodeRef.current && scrollNodeRef.current.addEventListener(browserCSSPrefix, runAnimation);
         isScrollChildren && resetScroll();
 
     }, [isScrollChildren, runAnimation, resetScroll]);
