@@ -111,8 +111,9 @@
   ],
   "keywords": [
     "react",
-    "scroll-table",
-    "scroll"
+    "scroll",
+    "scroll table",
+    "scroll up"
   ],
   "author": "lovewinders",
   "license": "MIT",
@@ -123,5 +124,5 @@
     "type": "git",
     "url": "https://github.com/hysight/react-components/tree/master/scrollTable"
   },
-  "version": "1.0.1"
+  "version": "1.0.2"
 }

@@ -6,7 +6,6 @@
  * @Last Modified time: 2019-12-04 16:07:22
  * @Description: 
  -->
-
 # @hysight/scroll-table
 
 @hysight/scroll-table uses react hooks and typescript to write a scrolling list plugin
@@ -87,6 +86,9 @@ Prop|Default|Type|Description
 
 
 # change logs
+
+### 1.0.2
+  + fix scroll
 
 ### 1.0.1
   + fix readme
