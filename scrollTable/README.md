@@ -34,6 +34,7 @@ const { LevelScroll } = ScrollTable;
     scrollHeight={54}
     scrollRows={5}
     delayTime={2000}
+    count={4}
 >
     <div style={{height: '54px'}}>list1</div>
     <div style={{height: '54px'}}>list1</div>
@@ -66,11 +67,11 @@ Prop|Default|Type|Description
 :----|:-----|:-----|:-----
 className|''|string|组件追加的className名称
 scrollSpeed|'linear'|string| [linear] [ease] [ease-in] [ease-out] [ease-in-out] [cubic-bezier(n,n,n,n)]
-scrollTime|2000|number|滚动单个所用时间，单位ms
-scrollHeight|27|number|单个item的高度，单位px
-scrollRows|5|number|默认展示几行数据
+scrollTime|2000|number|单个滚动所用时间，单位ms
+scrollHeight|27|number|单个滚动所需高度，单位px
+scrollRows|5|number|可视区域显示N个元素
 delayTime|1000|number|滚动间隔延迟时间，单位ms
-count|Infinity|number|滚动rows总个数统计数
+count|Infinity|number|数据总条数
 
 
 ## LevelScroll Props
