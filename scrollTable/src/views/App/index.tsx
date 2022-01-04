@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ScrollTable, { LevelScroll } from 'src/components';
 
@@ -26,7 +26,37 @@ const data = [
     { column: ['张一鸣', ['警员16', '13498723724']] },
     { column: ['张子鑫', ['警员17', '13323450987']] },
 ];
-function App() {
+function App(): JSX.Element {
+
+    const [dataSource, setDataSource] = useState(data);
+    useEffect(() => {
+
+        setTimeout(() => {
+
+            console.log(5);
+            setDataSource(data.slice(0, 5));
+        
+        }, 5000);
+        setTimeout(() => {
+
+            console.log(6);
+            setDataSource(data.slice(0, 6));
+        
+        }, 10000);
+        setTimeout(() => {
+
+            console.log(9);
+            setDataSource(data.slice(0, 9));
+        
+        }, 18000);
+        setTimeout(() => {
+
+            console.log(2);
+            setDataSource(data.slice(0, 2));
+        
+        }, 30000);
+    
+    }, []);
 
     return (
         <div>
@@ -38,10 +68,10 @@ function App() {
                 scrollHeight={54}
                 scrollRows={5}
                 delayTime={0}
-                count={data.length}
+                count={dataSource.length}
             >
                 <LevelCellGrid
-                    data={data}
+                    data={dataSource}
                     colDirection={['center', 'between']}
                     colWidth={['30%', '70%']}
                     rowHeight={'54px'}

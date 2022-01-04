@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { FC, memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import { browserCSSPrefix } from './utils';
 // import useUpdateLayoutEffect from './hooks/useUpdateLayoutEffect';
@@ -106,7 +106,7 @@ const ScrollTable: FC<Props> = props => {
      * @param {*} useCallback
      * @return {*}
      */
-    const clearTimer = useCallback(() => scrollNodeRef.current && clearTimeout(timerRef.current), []);
+    const clearTimer = useCallback(() => scrollNodeRef.current && timerRef.current && clearTimeout(timerRef.current), []);
 
     /*** 
      * @description: 开启动画
@@ -158,10 +158,12 @@ const ScrollTable: FC<Props> = props => {
      */
     const clearScroll = useCallback(() => {
 
-        timerRef.current && clearInterval(timerRef.current);
+        clearTimer();
+        clearTransition();
+        rowIndexRef.current = 1;
         scrollNodeRef.current && scrollNodeRef.current.removeEventListener(browserCSSPrefix, runAnimation);
 
-    }, [runAnimation]);
+    }, [clearTimer, clearTransition, runAnimation]);
 
     /*** 
      * @description: 启动滚动
@@ -177,7 +179,6 @@ const ScrollTable: FC<Props> = props => {
         // delayTime -> delay time to run scroll
 
         // addEventListener
-        // clearScroll();
         scrollNodeRef.current && scrollNodeRef.current.addEventListener(browserCSSPrefix, runAnimation);
         isScrollChildren && resetScroll();
 
@@ -228,14 +229,27 @@ const ScrollTable: FC<Props> = props => {
 
     useEffect(() => {
 
+        console.log('组件已加载');
         runScroll();
         return () => {
 
+            console.log('组件已卸载');
             clearScroll();
 
         };
 
     }, [runScroll, clearScroll]);
+
+    useLayoutEffect(() => {
+
+        console.log('useLayoutEffect 更新了', children);
+        if(children) {
+
+            // clearScroll();
+
+        }
+    
+    }, [children, clearScroll]);
 
     return (
         <div

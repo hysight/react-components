@@ -87,6 +87,9 @@ react scroll
 
 # change logs
 
+### 1.0.4
+  + fix 数据切换时，滚动失效
+
 ### 1.0.3
   + fix scroll
 
