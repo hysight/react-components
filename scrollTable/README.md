@@ -62,30 +62,32 @@ const { LevelScroll } = ScrollTable;
 
 > Scroll up
 
-Prop|Default|Type|Description
-:----|:-----|:-----|:-----
-className|''|string|组件追加的className名称
-scrollSpeed|'linear'|string| [linear] [ease] [ease-in] [ease-out] [ease-in-out] [cubic-bezier(n,n,n,n)]
-scrollTime|2000|number|单个滚动所用时间，单位ms
-scrollHeight|27|number|单个滚动所需高度，单位px
-scrollRows|5|number|可视区域显示N个元素
-delayTime|1000|number|滚动间隔延迟时间，单位ms
-count|Infinity|number|数据总条数
+| Prop         | Default  | Type   | Description                                                                |
+| :----------- | :------- | :----- | :------------------------------------------------------------------------- |
+| className    | ''       | string | 组件追加的className名称                                                    |
+| scrollSpeed  | 'linear' | string | [linear] [ease] [ease-in] [ease-out] [ease-in-out] [cubic-bezier(n,n,n,n)] |
+| scrollTime   | 2000     | number | 单个滚动所用时间，单位ms                                                   |
+| scrollHeight | 27       | number | 单个滚动所需高度，单位px                                                   |
+| scrollRows   | 5        | number | 可视区域显示N个元素                                                        |
+| delayTime    | 1000     | number | 滚动间隔延迟时间，单位ms                                                   |
+| count        | Infinity | number | 数据总条数                                                                 |
 
 
 ## LevelScroll Props
 
 > Scroll left
 
-Prop|Default|Type|Description
-:----|:-----|:-----|:-----
-无|无|无|无
+| Prop | Default | Type | Description |
+| :--- | :------ | :--- | :---------- |
+| 无   | 无      | 无   | 无          |
 
 ## keywords
 
 react scroll
 
 # change logs
+### 1.0.5
+  + fix 数据切换时，滚动报错style
 
 ### 1.0.4
   + fix 数据切换时，滚动失效

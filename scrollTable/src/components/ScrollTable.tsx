@@ -45,6 +45,7 @@ const ScrollTable: FC<Props> = props => {
     const setTransition = useCallback((scrollSpeed, scrollTime) => {
 
         const animationDom = scrollNodeRef.current;
+        if (!animationDom) return;
         animationDom.style.setProperty('-webkit-transition', `all ${scrollTime}ms ${scrollSpeed}`);
         animationDom.style.setProperty('-moz-transition', `all ${scrollTime}ms ${scrollSpeed}`);
         animationDom.style.setProperty('-ms-transition', `all ${scrollTime}ms ${scrollSpeed}`);
@@ -61,6 +62,8 @@ const ScrollTable: FC<Props> = props => {
     const clearTransition = useCallback(() => {
 
         const animationDom = scrollNodeRef.current;
+        if (!animationDom) return;
+
         //
         animationDom.style.setProperty('-webkit-transform', '');
         animationDom.style.setProperty('-moz-transform', '');
@@ -85,11 +88,13 @@ const ScrollTable: FC<Props> = props => {
     const setTimer = useCallback((scrollHeight, scrollSpeed, scrollTime, timer = 0) => {
 
         const animationDom = scrollNodeRef.current;
+        if (!animationDom) return;
         // timer setTimeout
         timerRef.current = setTimeout(() => {
 
             setTransition(scrollSpeed, scrollTime);
 
+            if (!animationDom) return;
             animationDom.style.setProperty('-webkit-transform', `-webkit-translateY(-${scrollHeight}px)`);
             animationDom.style.setProperty('-moz-transform', `-moz-translateY(-${scrollHeight}px)`);
             animationDom.style.setProperty('-ms-transform', `-ms-translateY(-${scrollHeight}px)`);
@@ -115,7 +120,7 @@ const ScrollTable: FC<Props> = props => {
      */
     const runAnimation = useCallback(() => {
 
-        if(!isStartScrollRef.current) return;
+        if (!isStartScrollRef.current) return;
 
         const animationDom = scrollNodeRef.current;
         const realAniHeight = animationDom.offsetHeight / 2;
@@ -123,7 +128,7 @@ const ScrollTable: FC<Props> = props => {
 
         const sh = scrollHeight * rowIndexRef.current;
 
-        if(rowIndexRef.current <= realRows) {
+        if (rowIndexRef.current <= realRows) {
 
             setTimer(sh, scrollSpeed, scrollTime, delayTime);
 
@@ -134,7 +139,7 @@ const ScrollTable: FC<Props> = props => {
             setTimer(scrollHeight, scrollSpeed, scrollTime, delayTime);
 
         }
-    
+
     }, [scrollHeight, scrollSpeed, scrollTime, delayTime, clearTransition, setTimer]);
 
     /*** 
@@ -194,7 +199,7 @@ const ScrollTable: FC<Props> = props => {
         isStartScrollRef.current = true;
         const sh = scrollHeight * rowIndexRef.current;
         setTimer(sh, scrollSpeed, scrollTime, delayTime);
-    
+
     }, [scrollHeight, scrollSpeed, scrollTime, delayTime, setTimer]);
 
     /*** 
@@ -229,32 +234,29 @@ const ScrollTable: FC<Props> = props => {
 
     useEffect(() => {
 
-        console.log('组件已加载');
         runScroll();
         return () => {
 
-            console.log('组件已卸载');
             clearScroll();
 
         };
 
     }, [runScroll, clearScroll]);
 
-    useLayoutEffect(() => {
+    // useEffect(() => {
 
-        console.log('useLayoutEffect 更新了', children);
-        if(children) {
+    //     if (children) {
 
-            // clearScroll();
+    //         // clearScroll();
 
-        }
-    
-    }, [children, clearScroll]);
+    //     }
+
+    // }, [children, clearScroll]);
 
     return (
         <div
             className={cls}
-            style={{height: `${scrollHeight * scrollRows}px`, overflow: 'hidden'}}
+            style={{ height: `${scrollHeight * scrollRows}px`, overflow: 'hidden' }}
         >
             {childrenNode}
         </div>
